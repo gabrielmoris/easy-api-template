@@ -1,10 +1,11 @@
-const dotenv = require("dotenv").config();
+// const dotenv = require("dotenv").config();
 
 exports.first = (req, res) => {
     try {
-        res.json("get in /");
+        res.json({ result: "get in /" });
     } catch (e) {
-        res.json("Error getting /", e);
+        res.status(400);
+        res.json({ "Error in /": e });
     }
 };
 
@@ -19,15 +20,19 @@ exports.second = (req, res) => {
             throw error;
         }
     } catch {
-        res.json("Error in /: Insert key 'message' (your message)").status(400);
+        res.status(400);
+        res.json({
+            "Error in /": "Insert key 'message' (your message)",
+        });
     }
 };
 
 exports.third = (req, res) => {
     try {
-        res.json("get in /1");
+        res.json({ result: "get in /1" });
     } catch (e) {
-        res.json("Error getting /1", e);
+        res.status(400);
+        res.json({ "Error in /": e });
     }
 };
 
@@ -41,8 +46,9 @@ exports.forth = (req, res) => {
             throw error;
         }
     } catch {
-        res.json("Error in /1: Insert key 'message' (your message)").status(
-            400
-        );
+        res.status(400);
+        res.json({
+            "Error in /1": "Insert key 'message' (your message)",
+        });
     }
 };
