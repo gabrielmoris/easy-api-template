@@ -13,7 +13,7 @@ exports.second = (req, res) => {
 
     try {
         if (message) {
-            res.json(message);
+            res.json({ "This is your message": message });
         } else {
             res.status(400);
             throw error;
@@ -35,7 +35,7 @@ exports.forth = (req, res) => {
     const message = req.body.message;
     try {
         if (message) {
-            res.json(message);
+            res.json({ "This is your message": message });
         } else {
             res.status(400);
             throw error;
