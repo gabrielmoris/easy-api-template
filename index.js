@@ -8,10 +8,12 @@ app.use(bodyParser.json());
 routes(app);
 
 app.get("/*", (req, res) => {
-    res.json({ response: "404 This URI doesn't exist" }).status(404);
+    res.status(404)
+    res.json({ response: "404 This URI doesn't exist" })
 });
 app.post("/*", (req, res) => {
-    res.json({ response: "404 This URI doesn't exist" }).status(404);
+    res.status(400);
+    res.json({ response: "404 This URI doesn't exist" })
 });
 
 module.exports = app;

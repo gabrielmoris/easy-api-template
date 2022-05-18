@@ -42,3 +42,10 @@ describe("/1", () => {
         });
     });
 });
+describe("/*", () => {
+    describe("get /any-other route", () => {
+        it("should return 404", async () => {
+            await supertest(app).get("/foo").expect(404);
+        });
+    });
+});
